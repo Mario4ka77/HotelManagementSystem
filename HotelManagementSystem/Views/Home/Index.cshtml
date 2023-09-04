@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="home">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/Template/images/index.jpg" data-speed="0.8">
+        <img src="~/Template/images/index.jpg" />
+    </div>
+    <div class="home_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content text-center">
+                        <div class="home_title"><h1>Find your next stay</h1></div>
+                        <div class="home_text">Discover your ideal accommodation for your upcoming trip by exploring a vast array of options. Uncover incredible deals and offers that will enhance your travel experience, ensuring you find the perfect place to stay. </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="search_box">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="search_box_container d-flex flex-row align-items-center justify-content-start">
+                    <div class="search_form_container">
+                        @using (Html.BeginForm("RoomSearch", "Room", FormMethod.Post))
+                        {
+                            <div class="row">
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">City</label>
+                                    @Html.DropDownList("City", ViewBag.City as SelectList, "Select City", new { @class = "form-control", required = "required" })
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">Room Type</label>
+                                    @Html.DropDownList("RoomType", ViewBag.Class as SelectList, "Select Room Type", new { @class = "form-control", required = "required" })
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">Members</label>
+                                    <input type="number" class="form-control" name="Members" required/>
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">From Date</label>
+                                    <input type="date" class="form-control" name="FromDate" required/>
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">To Date</label>
+                                    <input type="date" class="form-control" name="ToDate" required/>
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white"></label><br />
+                                    <input type="submit" value="Search" class="btn btn-outline-warning"/>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <div class="section_title"><h1>Planeta Hotel & Aquapark - More than a stay</h1></div>
+                    <div class="section_text">
+                        Located only 70 metres from the beach in the centre of Sunny Beach, the luxurious, first-class Planeta Hotel & Aquapark - All Inclusive offers a swimming pools with water slides. Guests can enjoy the sea view from the property.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row intro_row">
+
+            <!-- Intro Image -->
+            <div class="col-lg-6">
+                <div class="intro_image"><img src="~/Template/images/intro.jpg" alt="https://unsplash.com/papao03"></div>
+            </div>
+
+            <!-- Intro Content -->
+            <div class="col-lg-6 intro_col">
+                <div class="intro_content">
+                    <div class="quote"><img src="~/Template/images/quote.png" alt=""></div>
+                    <div class="intro_text">
+                        <p>
+                            My recent stay at this hotel exceeded expectations. The room was spacious, clean, and the staff provided exceptional service. Highly recommended!
+                        </p>
+                    </div>
+                    <div class="intro_author d-flex flex-row align-items-center justify-content-start">
+                        <div class="author_image"><img src="~/Template/images/author_1.jpg" alt="https://unsplash.com/onurozkardes"></div>
+                        <div class="intro_author_content">
+                            <div class="intro_author_name">Ivan Petrov</div>
+                            <div class="intro_author_title">client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="facilities">
+    <div class="container">
+        <div class="row icon_box_row">
+
+            <!-- Icon Box -->
+            <div class="col-lg-4">
+                <div class="icon_box text-center">
+                    <div class="icon_box_icon"><img src="~/Template/images/icon_1.svg" alt=""></div>
+                    <div class="icon_box_title"><h2>Beautiful Rooms</h2></div>
+                    <div class="icon_box_text">
+                        <p>
+                            Hotel rooms offer comfort, convenience, and a home away from home for travelers, ensuring a relaxing and enjoyable stay.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Icon Box -->
+            <div class="col-lg-4">
+                <div class="icon_box text-center">
+                    <div class="icon_box_icon"><img src="~/Template/images/icon_2.svg" alt=""></div>
+                    <div class="icon_box_title"><h2>Swimming Pool</h2></div>
+                    <div class="icon_box_text">
+                        <p>Swimming pools offer refreshing aquatic escapes, perfect for relaxation, exercise, and family fun during hot summer days.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Icon Box -->
+            <div class="col-lg-4">
+                <div class="icon_box text-center">
+                    <div class="icon_box_icon"><img src="~/Template/images/icon_3.svg" alt=""></div>
+                    <div class="icon_box_title"><h2>Luxury Resort</h2></div>
+                    <div class="icon_box_text">
+                        <p>Indulge in opulent elegance and impeccable service at our luxurious resort, where every moment is a lavish escape.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <img class="card-img-top" src="~/Template/images/gallery_1.jpg" alt="Card image cap">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <img class="card-img-top" src="~/Template/images/gallery_2.jpg" alt="Card image cap">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card">
+                    <img class="card-img-top" src="~/Template/images/gallery_3.jpg" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card">
+                    <img class="card-img-top" src="~/Template/images/gallery_4.jpg" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br />

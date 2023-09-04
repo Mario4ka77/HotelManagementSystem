@@ -1,0 +1,52 @@
+﻿@model HotelManagementSystem.Models.Room
+
+@{
+    ViewBag.Title = "Room Details";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container">
+    <h2>Room Details</h2>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <img src="@Url.Content(Model.Image)" alt="Room Image" class="img-thumbnail" />
+        </div>
+        <div class="col-md-6">
+            <h2>@Model.Hotel.HotelName</h2>
+            <p>Room Number: @Model.RoomNumber</p>
+            <p>Class: @Model.ClassName</p>
+            <p>Max Guests: @Model.MaxGuest</p>
+            <p>Price: $@Model.Price per night</p>
+            <p>Description: @Model.Description</p>
+            @Html.ActionLink("Book Now", "Create", "Reservation", new { id = Model.RoomId }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+
+    @if (ViewBag.Review != null)
+    {
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Reviews</h3>
+                @foreach (HotelManagementSystem.Models.Review review in ViewBag.Review)
+                {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <img src="@Url.Content(Session["UserImage"].ToString())" height="75" width="75" alt="Not Found" class="rounded-circle mr-3" />
+                        <div>
+                            <h5 class="card-title">@review.User.FirstName @review.User.LastName</h5>
+                            <p class="card-text">@Convert.ToDateTime(review.CurrentDate).ToString("dd-MM-yyyy")</p>
+                            <p class="card-text">@review.Commnet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                }
+            </div>
+        </div>
+    }
+</div>

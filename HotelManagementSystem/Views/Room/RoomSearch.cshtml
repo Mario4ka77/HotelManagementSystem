@@ -1,0 +1,130 @@
+﻿@model IEnumerable<HotelManagementSystem.Models.Room>
+
+@{
+    ViewBag.Title = "RoomSearch";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="search_box">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="search_box_container d-flex flex-row align-items-center justify-content-start">
+                    <div class="search_form_container">
+                        @using (Html.BeginForm("RoomSearch", "Room", FormMethod.Post))
+                        {
+                            <div class="row">
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">City</label>
+                                    @Html.DropDownList("City", ViewBag.City as SelectList, "Select City", new { @class = "form-control", required = "required" })
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">Room Type</label>
+                                    @Html.DropDownList("RoomType", ViewBag.Class as SelectList, "Select Room Type", new { @class = "form-control", required = "required" })
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">Members</label>
+                                    <input type="number" class="form-control" name="Members" required />
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">From Date</label>
+                                    <input type="date" class="form-control" name="FromDate" required />
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white">To Date</label>
+                                    <input type="date" class="form-control" name="ToDate" required />
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-center fw-bold text-white"></label><br />
+                                    <input type="submit" value="Search" class="btn btn-outline-warning" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="container">
+    <div class="h-100 d-inline-block">
+        <br /><br />
+        <h2>Room Search</h2>
+
+        <!--<tr>-->
+        @*<th>
+                @Html.DisplayNameFor(model => model.Hotel.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxGuest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>*@
+
+        <!--<th></th>
+        </tr>-->
+
+
+        <div class="row flex-row">
+
+            @foreach (var item in Model)
+            {
+                <div class="row col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@Url.Content(item.Image)" alt="Room Image" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Hotel.HotelName</h5>
+                            <p class="card-text">Room Number: @item.RoomNumber</p>
+                            <p class="card-text">Class: @item.ClassName</p>
+                            <p class="card-text">Max Guests: @item.MaxGuest</p>
+                            <p class="card-text">Price: $@item.Price per night</p>
+                            <p class="card-text">Description: @item.Description</p>
+                            @Html.ActionLink("Details", "Details", new { id = item.RoomId }, new { @class = "btn btn-primary", target = "_blank" })
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+    @{
+            double totalpages = ViewBag.TotalPages;
+            for (int i = 1; i <= totalpages; i++)
+            {
+               @Html.ActionLink(i.ToString(), "RoomSearch", new { PageNumber = i }, new { @class = "btn btn-primary mr-2" })
+                
+            }
+    }
+    <div style="height:400px">
+        @if (Model.Count() == 0)
+        {
+            <h2>No Record Found</h2>
+        }
+    </div>
+</div>

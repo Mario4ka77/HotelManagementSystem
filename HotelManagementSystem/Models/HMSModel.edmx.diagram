@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="67c4e91f66fa4582ad1ba377bc4aef15" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="HMSModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMSModel.Country" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HMSModel.Room" Width="1.5" PointX="7.875" PointY="4.875" />
+        <EntityTypeShape EntityType="HMSModel.Hotel" Width="1.5" PointX="5.625" PointY="4.875" />
+        <AssociationConnector Association="HMSModel.FK_Coutry_Id" />
+        <AssociationConnector Association="HMSModel.FK_Hotel_Id" />
+        <EntityTypeShape EntityType="HMSModel.Reservation" Width="1.5" PointX="10.125" PointY="2.875" />
+        <AssociationConnector Association="HMSModel.FK_Room_Id" />
+        <AssociationConnector Association="HMSModel.FK_User_Id" />
+        <EntityTypeShape EntityType="HMSModel.Review" Width="1.5" PointX="13.125" PointY="3.25" />
+        <AssociationConnector Association="HMSModel.FK_Review_Room_Id" />
+        <AssociationConnector Association="HMSModel.FK_Review_User_Id" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HotelManagementSystem.Models.Room>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-12 bg-light">
+    <h2>Hotel List</h2>
+    @if (ViewBag.Message != null)
+    {
+
+        <div class="alert alert-success" role="alert">
+            @ViewBag.Message
+        </div>
+    }
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxGuest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hotel.HotelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxGuest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.Image)" alt="Not Found" width="80" height="80" />
+                    @*@Html.DisplayFor(modelItem => item.Image)*@
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RoomId }) |
+                    @*@Html.ActionLink("Details", "Details", new { id=item.RoomId }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RoomId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

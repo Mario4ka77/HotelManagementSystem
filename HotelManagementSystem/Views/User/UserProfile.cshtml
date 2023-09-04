@@ -1,0 +1,48 @@
+﻿@model HotelManagementSystem.Models.User
+
+@{
+    ViewBag.Title = "User Profile";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container mt-5">
+    <h2>User Profile</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@Url.Content(Session["UserImage"].ToString())" alt="User Image" class="img-thumbnail" />
+        </div>
+        <div class="col-md-8">
+            <dl class="row">
+                <dt class="col-sm-3">First Name:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.FirstName)</dd>
+
+                <dt class="col-sm-3">Last Name:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.LastName)</dd>
+
+                <dt class="col-sm-3">Phone:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Phone)</dd>
+
+                <dt class="col-sm-3">Date of Birth:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Dob)</dd>
+
+                <dt class="col-sm-3">Email:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        @Html.ActionLink("Edit Profile", "UserEdit", new { id = Model.UserId }, new { @class = "btn btn-primary" })
+        @* Add more action links or buttons as needed *@
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
